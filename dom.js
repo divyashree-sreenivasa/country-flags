@@ -24,28 +24,14 @@ const createCountryItem = (name, population, region, capital, flag) => {
     wrapper.classList.add("wrapper");
     document.querySelector('.container').append(wrapper);
 
-    const img = document.createElement('img');
-    wrapper.append(img);
-    img.setAttribute("src", flag);
-
-    const infoWrapper = document.createElement("div");
-    infoWrapper.classList.add("info-wrapper");
-    wrapper.append(infoWrapper);
-
-    const nameHeading = document.createElement('h2');
-    infoWrapper.append(nameHeading);
-    nameHeading.innerText = name;
-    
-    let item = document.createElement('p');
-    infoWrapper.append(item);
-    item.innerHTML = `<b>Population: </b> ${population}`;
-
-    item = document.createElement('p');
-    infoWrapper.append(item);
-    item.innerHTML = `<b>Region: </b> ${region}`;
-
-    item = document.createElement('p');
-    infoWrapper.append(item);
-    item.innerHTML = `<b>Capital: </b> ${capital}`; 
-    
+    const countryHTML = `
+        <img src="${flag}"/>
+        <div class="info-wrapper">
+            <h2>${name}</h2>
+            <p><b>Population: </b> ${population}</p>
+            <p><b>Region: </b> ${region}</p>
+            <p><b>Capital: </b> ${capital}</p>
+        </div>
+    `
+    wrapper.innerHTML = countryHTML;
 }
